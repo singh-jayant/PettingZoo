@@ -82,7 +82,7 @@ class Scenario(BaseScenario):
         rew = 0
         for a1 in world.agents:
             dists = [np.sqrt(np.sum(np.square(a1.state.p_pos - a2.state.p_pos))) for a2 in world.agents]
-            rew -= min(dists)
+            rew -= np.sum(dists)
         return rew
 
     def observation(self, agent, world):
